@@ -26,3 +26,10 @@ def parse_day4(inputfile):
     # for l in listy:
     #     print(l)
     return listy
+
+def parse_day5(inputfile):
+    polymer = ""
+    with open(inputfile) as f:
+        for line in f.readlines():
+            polymer = line.strip()
+    return polymer
