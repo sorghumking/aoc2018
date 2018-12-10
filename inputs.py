@@ -33,3 +33,24 @@ def parse_day5(inputfile):
         for line in f.readlines():
             polymer = line.strip()
     return polymer
+
+def parse_day6(inputfile):
+    coords = []
+    with open(inputfile) as f:
+        pattern = "([0-9]+), ([0-9]+)"
+        for line in f.readlines():
+            tokens = re.search(pattern, line)
+            if tokens:
+                coords.append((int(tokens.groups()[0]), int(tokens.groups()[1])))
+    return coords
+
+def parse_day7(inputfile):
+    prereqs = [] # list of (required step, dependent step) tuples
+    with open(inputfile) as f:
+        pattern = "Step ([A-Z]) .+ ([A-Z]) can begin\."
+        for line in f.readlines():
+            tokens = re.search(pattern, line)
+            if tokens:
+                tup = tokens.groups()
+                prereqs.append(tup)
+    return prereqs
