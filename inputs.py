@@ -73,3 +73,15 @@ def parse_day10(inputfile):
             else:
                 print("Parsing issue")
     return pvlist
+
+def parse_day12(inputfile):
+    notes = {}
+    with open(inputfile) as f:
+        for line in f.readlines():
+            pattern = "([\.#]+) => ([.#])"
+            tokens = re.search(pattern, line)
+            if tokens and len(tokens.groups()) == 2:
+                notes[tokens.groups()[0]] = tokens.groups()[1]
+            else:
+                print("Parsing issue")
+    return notes
