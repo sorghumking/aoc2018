@@ -54,3 +54,22 @@ def parse_day7(inputfile):
                 tup = tokens.groups()
                 prereqs.append(tup)
     return prereqs
+
+def parse_day8(inputfile):
+    nodes = []
+    with open(inputfile) as f:
+        for line in f.readlines():
+            nodes += [int(c) for c in line.split(' ')]
+    return nodes
+
+def parse_day10(inputfile):
+    pvlist = []
+    with open(inputfile) as f:
+        for line in f.readlines():
+            pattern = "position=<([ \-][0-9]+), ([ \-][0-9]+)> velocity=<([ \-][0-9]+), ([ \-][0-9]+)>"
+            tokens = re.search(pattern, line)
+            if tokens and len(tokens.groups()) == 4:
+                pvlist += [int(g) for g in tokens.groups()]
+            else:
+                print("Parsing issue")
+    return pvlist
