@@ -85,3 +85,13 @@ def parse_day12(inputfile):
             else:
                 print("Parsing issue")
     return notes
+
+def parse_day13(inputfile):
+    tracks = []
+    with open(inputfile) as f:
+        for line in f.readlines():
+            tracks.append([c for c in line.rstrip('\n')])
+        # for row in tracks:
+        #     for item in row:
+        #         if item in ['v', '^', '>', '<']:
+    return tracks
